@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    h1 Users Management
+    .container
+        if users
+            each user in users
+                .card
+                    .card-header #{user.username} - #{user.role}
+                    .user-info
+                        img(src=`/images/${user.avatar}`, alt=user.username, class=`avatar`)
+                    .card-body
+                        form(action=`/admin/users/${user.id}/update`, method="post")
+                            label(for="username") Username:
+                            input(type="text", name="username", value=user.username)
+
+                            label(for="email") Email:
+                            input(type="email", name="email", value=user.email)
+
+                            label(for="birthDate") Birth Date:
+                            input(type="date", name="birthDate", value=user.birthDate)
+
+                            label(for="status") Status:
+                            select(name="status")
+                                option(value="active" selected=user.status=="active") Active
+                                option(value="blocked" selected=user.status=="blocked") Blocked
+                                option(value="unverified" selected=user.status=="unverified") Unverified
+
+                            label(for="role") Role:
+                            select(name="role")
+                                option(value="admin" selected=user.role=="admin") Admin
+                                option(value="user" selected=user.role=="user") User
+
+                            button(type="submit" class="button") Save Changes
+        else
+            p No users found.

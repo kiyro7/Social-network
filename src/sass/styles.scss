@@ -1,0 +1,158 @@
+$background-color: #f9f9f9;
+$primary-color: #4CAF50;
+$text-color: #333;
+$card-bg: #fff;
+$border-radius: 8px;
+$spacing: 16px;
+@use 'sass:color';
+@use 'sass:math';
+$avatar-size: 150px; // Fixed size for avatars
+$post-photo-size: 300px; // Fixed size for post photos
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+  color: $text-color;
+}
+
+h1, h2 {
+  color: color.adjust($text-color, $lightness: 20%);
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: $spacing;
+}
+
+.card {
+  background-color: $card-bg;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: $spacing;
+  margin-bottom: $spacing;
+}
+
+.card-header {
+  font-weight: bold;
+  margin-bottom: math.div($spacing, 2);
+}
+
+.card-body {
+  p {
+    margin: math.div($spacing, 4) 0;
+  }
+}
+
+.button {
+  background-color: $primary-color;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: math.div($border-radius, 2);
+  cursor: pointer;
+
+  &:hover {
+    background-color: color.adjust($text-color, $lightness: 10%);
+  }
+}
+
+input[type="text"], input[type="email"], select {
+  width: 100%;
+  padding: math.div($spacing, 4);
+  margin: math.div($spacing, 4) 0;
+  border: 1px solid color.adjust($text-color, $lightness: 40%);
+  border-radius: math.div($border-radius, 2);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-info, .post-info {
+  display: flex;
+  align-items: center;
+  margin: math.div($spacing, 2) 0;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: math.div($spacing, 2);
+  }
+}
+
+.post-date {
+  font-size: 0.9rem;
+  color: color.adjust($text-color, $lightness: 20%);
+}
+
+body {
+  color: $text-color;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-color: color.adjust($primary-color, $lightness: -10%);
+  padding: math.div($spacing, 4);
+  margin: math.div($spacing, 4) 0;
+}
+
+.button {
+  background-color: color.scale($primary-color, $lightness: -20%);
+  color: white;
+  border-radius: math.div($border-radius, 2);
+  padding: math.div($spacing, 4);
+
+  &:hover {
+    background-color: color.adjust($primary-color, $lightness: -10%);
+  }
+}
+
+.text-muted {
+  color: color.adjust($text-color, $lightness: 20%);
+}
+
+// General Image Styles
+img {
+  max-width: 100%; // Ensure responsive behavior
+  height: auto; // Maintain aspect ratio for images that don't use fixed sizes
+}
+
+// Styles for Avatars
+.avatar {
+  width: $avatar-size; // Fixed width for avatars
+  height: $avatar-size; // Fixed height for avatars
+  border-radius: 50%; // Make the avatar circular
+  overflow: hidden; // Hide overflow if the image exceeds the container
+  object-fit: cover; // Ensure the image covers the entire area
+}
+
+// Styles for Post Photos
+.post-photo {
+  width: $post-photo-size; // Fixed width for post photos
+  height: $post-photo-size; // Fixed height for post photos
+  border-radius: 10px; // Slightly rounded corners for post photos
+  overflow: hidden; // Hide overflow if the image exceeds the container
+  object-fit: cover; // Ensure the image covers the entire area
+}
+
+// Additional responsive design for larger screens (optional)
+@media (min-width: 768px) {
+  .avatar {
+    width: $avatar-size; // Example for larger avatars
+    height: $avatar-size;
+  }
+
+  .post-photo {
+    width: $post-photo-size; // Example for larger post photos
+    height: $post-photo-size;
+  }
+}

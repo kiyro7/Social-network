@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    if user
+        h1 #{user.username}'s Friends
+        .container
+            if friends && friends.length
+                each friend in friends
+                    .card
+                        img(src=`/images/${friend.avatar}`, alt=`${friend.username}'s Avatar`, class='avatar')
+                        h2 #{friend.username}
+                        p Email: #{friend.email}
+            else
+                p No friends found.
+    else
+        p User not found.

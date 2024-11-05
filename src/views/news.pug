@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 News Feed
+    if posts && posts.length
+        each post in posts
+            .card
+                img(src=`/images/${post.avatar}`, alt=`${post.username}'s avatar`, class=`avatar`)
+                h2 #{post.username}
+                p Published on #{new Date(post.date).toLocaleDateString()}
+                p #{post.text}
+                if post.image
+                    img(src=`/images/${post.image}`, alt="Post image", class=`post-photo`)
+    else
+        p No posts available.

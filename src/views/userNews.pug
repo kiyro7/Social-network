@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    if user
+        h1 #{user.username}'s Friends' Posts
+        .container
+            each friend in friends
+                each post in friend.posts
+                    if post.status == "active"
+                        .card
+                            .card-header #{friend.username} - #{post.date}
+                            .post-info
+                                if post.image
+                                    img(src=`/images/${post.image}`, alt="post image", class=`post-photo`)
+                                .card-body
+                                    p.post-date Published on #{post.date}
+                                    p #{post.text}
+    else
+        p User not found.

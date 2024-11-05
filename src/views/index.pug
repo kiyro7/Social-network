@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        title= title
+        link(rel="stylesheet" href="/css/styles.css")
+    body
+        h1 Social Network
+        ul
+            if users && users.length
+                each user in users
+                    li
+                        a(href=`/user/${user.id}`) #{user.username}
+            else
+                li No users found.

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 Admin Panel
+    p Manage all users and their posts.
+
+    if users
+        ul
+            each user in users
+                li
+                    a(href=`/user/${user.id}`) #{user.username} - #{user.role}
+                    form(action=`/admin/delete/${user.id}`, method="post")
+                        button(type="submit") Delete User
+    else
+        p No users found.

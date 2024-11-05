@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        title User Profile
+        link(rel="stylesheet", href="/css/styles.css")
+    body
+        if user
+            h1= user.username
+            img(src=`/images/${user.avatar}`, alt=user.username, class=`avatar`)
+            p Email: #{user.email}
+            p Status: #{user.status}
+            p Role: #{user.role}
+            h2 Friends
+            ul
+                each friend in friends
+                    li
+                        a(href=`/user/${friend.id}`) #{friend.username}
+            h2 Posts
+            ul
+                each post in user.posts
+                    if post.status === "active"
+                        li
+                            p #{post.text}
+                            if post.image
+                                img(src=`/images/${post.image}`, alt="post image", class=`post-photo`)
+        else
+            p User not found.
