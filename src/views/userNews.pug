@@ -6,14 +6,13 @@ block content
         .container
             each friend in friends
                 each post in friend.posts
-                    if post.status == "active"
+                    if post.status === "active"
                         .card
-                            .card-header #{friend.username} - #{post.date}
-                            .post-info
-                                if post.image
-                                    img(src=`/images/${post.image}`, alt="post image", class=`post-photo`)
-                                .card-body
-                                    p.post-date Published on #{post.date}
-                                    p #{post.text}
+                            .card-header #{friend.username} - #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
+                            .card-body
+                                p #{post.text}
+
+                            if post.image
+                                img(src=`/images/${post.image}`, alt="post image", class=`post-photo`)
     else
         p User not found.

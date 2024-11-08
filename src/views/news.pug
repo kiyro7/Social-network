@@ -4,12 +4,18 @@ block content
     h1 News Feed
     if posts && posts.length
         each post in posts
-            .card
+            .card(class=`user-post`)
                 img(src=`/images/${post.avatar}`, alt=`${post.username}'s avatar`, class=`avatar`)
-                h2 #{post.username}
-                p Published on #{new Date(post.date).toLocaleDateString()}
+                h2 #{post.username} - #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
                 p #{post.text}
                 if post.image
                     img(src=`/images/${post.image}`, alt="Post image", class=`post-photo`)
+                .status-update
+                    form(action=`/admin/news/${post.userId}/post/${post.id}/update-status`, method="post")
+                        label(for="status") Status:
+                        select(name="status")
+                            option(value="active" selected=post.status === "active") Active
+                            option(value="blocked" selected=post.status === "blocked") Blocked
+                        button(type="submit" class="button") Update Status
     else
         p No posts available.

@@ -16,40 +16,30 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Загрузка данных из users.json
-const rawData = fs.readFileSync(path.join(__dirname, 'src/data', 'users.json'), 'utf-8');
-const usersData = JSON.parse(rawData);
-
-// Список пользователей
-const users = usersData.map(user => ({
-    id: user.id,
-    username: user.username,
-    avatar: user.avatar,
-    birthDate: user.birthDate,
-    email: user.email,
-    status: user.status,
-    role: user.role,
-    friends: user.friends
-}));
-
-// Список постов всех пользователей
-const posts = usersData.flatMap(user => user.posts.map(post => ({
-    ...post,
-    userId: user.id,
-    username: user.username,
-    avatar: user.avatar
-})));
-
 // Функция для загрузки данных пользователей
 function loadUsers() {
     const data = fs.readFileSync(path.join(__dirname, 'src/data/users.json'), 'utf-8');
     return JSON.parse(data);
 }
 
+function getPosts() {
+    const usersData = loadUsers();
+    return usersData.flatMap(user => user.posts.map(post => ({
+        ...post,
+        userId: user.id,
+        username: user.username,
+        avatar: user.avatar
+    })));
+}
+
+// New function to save updated users data back to the JSON file
+function saveUsers(usersData) {
+    fs.writeFileSync(path.join(__dirname, 'src/data/users.json'), JSON.stringify(usersData, null, 2), 'utf8');
+}
+
 // Главная страница
 app.get('/', (req, res) => {
-    const users = loadUsers();
-    res.render('index', { title: 'Social Network', users });
+    res.redirect("/admin/users")
 });
 
 // Страница профиля пользователя
@@ -64,12 +54,6 @@ app.get('/user/:id', (req, res) => {
     }
 });
 
-// Админ-панель для всех пользователей
-app.get('/admin', (req, res) => {
-    const users = loadUsers();
-    res.render('admin', { users });
-});
-
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
@@ -80,8 +64,8 @@ app.get('/admin/users', (req, res) => {
 });
 
 app.get('/admin/news', (req, res) => {
-    const users = loadUsers();
-    res.render('news', { users });
+    const posts = getPosts().sort((a, b) => new Date(b.date) - new Date(a.date));
+    res.render('news', { posts });
 });
 
 app.get('/user/:id/friends', (req, res) => {
@@ -106,23 +90,61 @@ app.get('/user/:id/news', (req, res) => {
     }
 });
 
-// Маршрут для /news
-app.get('/news', (req, res) => {
-    res.render('news', { posts });
+// Route to handle updating a user's information
+app.post('/admin/users/:id/update', (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+    const { username, email, birthDate, status, role } = req.body;
+
+    // Load users data
+    const usersData = loadUsers();
+
+    // Find and update the specified user
+    const user = usersData.find(user => user.id === userId);
+    if (user) {
+        user.username = username;
+        user.email = email;
+        user.birthDate = birthDate;
+        user.status = status;
+        user.role = role;
+
+        // Save the updated data back to the file
+        saveUsers(usersData);
+
+        // Redirect back to the admin users page
+        res.redirect('/admin/users');
+    } else {
+        // If the user was not found, respond with a 404 error
+        res.status(404).send('User not found');
+    }
 });
 
-// Маршрут для /users
-app.get('/users', (req, res) => {
-    res.render('users', { users });
-});
+app.post('/admin/news/:userId/post/:postId/update-status', (req, res) => {
+    const { userId, postId } = req.params;
+    const { status } = req.body;
+    const users = loadUsers();
 
-// Маршрут для списка друзей пользователя
-app.get('/friends/:userId', (req, res) => {
-    const userId = req.params.userId;
+    // Find the user and the post to update
     const user = users.find(u => u.id === parseInt(userId));
-    const friends = user ? user.friends : null;
-    res.render('friends', { user, friends });
+    if (user) {
+        const post = user.posts.find(p => p.id === parseInt(postId));
+        if (post) {
+            post.status = status;
+            saveUsers(users);
+        }
+    }
+
+    res.redirect('/admin/news'); // Redirect back to the news page after update
 });
+
+
+
+
+
+
+
+
+
+
 
 // Обработчик для несуществующих страниц
 app.use((req, res, next) => {

@@ -1,4 +1,4 @@
-$background-color: #f9f9f9;
+$background-color: #b5b5b5;
 $primary-color: #4CAF50;
 $text-color: #333;
 $card-bg: #fff;
@@ -8,6 +8,10 @@ $spacing: 16px;
 @use 'sass:math';
 $avatar-size: 150px; // Fixed size for avatars
 $post-photo-size: 300px; // Fixed size for post photos
+$even-bg-color: #f9f9f9;
+$odd-bg-color: #e8e8e8;
+$padding: 10px;
+$margin-bottom: 10px;
 
 * {
   box-sizing: border-box;
@@ -94,6 +98,14 @@ ul {
   color: color.adjust($text-color, $lightness: 20%);
 }
 
+.user-update-info-element-form {
+  margin-bottom: 10px;
+}
+
+.user-update-info-element-form-birthDate-div {
+  margin-top: 5px;
+}
+
 body {
   color: $text-color;
   font-family: Arial, sans-serif;
@@ -156,3 +168,48 @@ img {
     height: $post-photo-size;
   }
 }
+
+.user-post {
+  padding: $padding;
+  border-radius: $border-radius;
+  margin-bottom: $margin-bottom;
+  background-color: #FFFFFF;
+  position: relative;
+
+  .status-update {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 150px; // Limit the width of the form container
+    background-color: rgba(100, 100, 100, 0.2); // Semi-transparent background
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Subtle shadow to separate from post
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label, select, button {
+      font-size: 12px; // Slightly smaller font for compactness
+    }
+
+    button {
+      background-color: #4a4a4a;
+      color: white;
+      border: none;
+      padding: 5px;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%; // Ensure button fills the form width
+
+      &:hover {
+        background-color: #333;
+      }
+    }
+  }
+}
+
+

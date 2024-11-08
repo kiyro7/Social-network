@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "avatar": "1.png",
+    "birthDate": "1985-05-20",
+    "email": "admin@example.com",
+    "status": "active",
+    "role": "admin",
+    "friends": [
+      2
+    ],
+    "posts": [
+      {
+        "id": 1,
+        "date": "2024-11-01T12:00:00",
+        "text": "Welcome to the admin panel!",
+        "image": null,
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "username": "user1",
+    "avatar": "2.png",
+    "birthDate": "1990-07-15",
+    "email": "user1@example.com",
+    "status": "active",
+    "role": "user",
+    "friends": [
+      1
+    ],
+    "posts": [
+      {
+        "id": 2,
+        "date": "2024-10-20T10:00:00",
+        "text": "Hello, world!",
+        "image": "3.png",
+        "status": "active"
+      }
+    ]
+  }
+]

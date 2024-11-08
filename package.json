@@ -28,7 +28,7 @@
     "jquery": "^3.7.1",
     "jquery-ui": "^1.14.1",
     "pug": "^3.0.3",
-    "sass": "^1.80.6",
+    "sass": "1.77.6",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-stream": "^7.0.0"

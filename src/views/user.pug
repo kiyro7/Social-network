@@ -19,7 +19,8 @@ html
             ul
                 each post in user.posts
                     if post.status === "active"
-                        li
+                        li(class=`user-post`)
+                            p Published on #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
                             p #{post.text}
                             if post.image
                                 img(src=`/images/${post.image}`, alt="post image", class=`post-photo`)
