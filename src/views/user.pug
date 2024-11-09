@@ -21,7 +21,7 @@ html
             h2 Posts
             ul
                 each post in user.posts
-                    li(class=post.status === "active" ? `user-post`: `user-blocked-post`)
+                    li(class=post.status === "active" ? `user-post`: `user-blocked-post`, id=`post_${post.id}`)
                         p Published on #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
                         p #{post.text}
                         if post.images
