@@ -5,16 +5,19 @@ html
         link(rel="stylesheet", href="/css/styles.css")
     body
         if user
-            h1= user.username
+            h1(class=`page-title-color-only`) #{user.username}
             img(src=`/images/${user.avatar}`, alt=user.username, class=`avatar`)
             p Email: #{user.email}
             p Status: #{user.status}
             p Role: #{user.role}
-            h2 Friends
+            h2
+                a(href=`/user/${user.id}/friends`, class=`button-to-go-to-other-page`) Friends
             ul
                 each friend in friends
                     li
-                        a(href=`/user/${friend.id}`) #{friend.username}
+                        a(href=`/user/${friend.id}`, class=`button-to-go-to-other-page`) #{friend.username}
+            h2
+                a(href=`/user/${user.id}/news`, class=`button-to-go-to-other-page`) Friends' posts
             h2 Posts
             ul
                 each post in user.posts
