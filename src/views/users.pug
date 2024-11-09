@@ -1,8 +1,11 @@
 extends layout
 
 block content
-    h1 Users Management
     script(src="/js/bundle.js")
+    h1(class=`page-title`) Users Management
+    .go-to-other-page
+        h1
+            a(href="/admin/news") Go to news
     .container
         if users
             each user in users

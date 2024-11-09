@@ -212,4 +212,36 @@ img {
   }
 }
 
+.go-to-other-page {
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+}
 
+.go-to-other-page2 {
+  margin-left: 200px;
+}
+
+.go-to-other-page a, .go-to-other-page2 a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.go-to-other-page a:hover, .go-to-other-page2 a:hover {
+  text-decoration: underline;
+}
+
+.page-title {
+  position: absolute;
+  color: #007bff;
+  left: 10px;
+}
+
+.header-row {
+  display: flex;
+  align-items: center; /* Vertically align the items */
+  justify-content: flex-start; /* Align items to the left */
+}
