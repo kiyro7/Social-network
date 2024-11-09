@@ -12,8 +12,9 @@ block content
                 img(src=`/images/${post.avatar}`, alt=`${post.username}'s avatar`, class=`avatar`)
                 h2 #{post.username} - #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
                 p #{post.text}
-                if post.image
-                    img(src=`/images/${post.image}`, alt="Post image", class=`post-photo`)
+                if post.images
+                    each image in post.images
+                        img(src=`/images/${image}`, alt="post image", class=`post-photo`)
                 .status-update
                     form(action=`/admin/news/${post.userId}/post/${post.id}/update-status`, method="post")
                         label(for="status") Status:

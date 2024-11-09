@@ -131,6 +131,7 @@ img {
   border-radius: 10px;
   overflow: hidden;
   object-fit: cover;
+  margin: 20px;
 }
 
 @media (min-width: 768px) {

@@ -12,7 +12,8 @@ block content
                             .card-body
                                 p #{post.text}
 
-                            if post.image
-                                img(src=`/images/${post.image}`, alt="post image", class=`post-photo`)
+                            if post.images
+                                each image in post.images
+                                    img(src=`/images/${image}`, alt="post image", class=`post-photo`)
     else
         p User not found.

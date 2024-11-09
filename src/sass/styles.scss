@@ -154,6 +154,7 @@ img {
   border-radius: 10px; // Slightly rounded corners for post photos
   overflow: hidden; // Hide overflow if the image exceeds the container
   object-fit: cover; // Ensure the image covers the entire area
+  margin: 20px;
 }
 
 // Additional responsive design for larger screens (optional)

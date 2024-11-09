@@ -16,14 +16,14 @@
         "id": 1,
         "date": "2024-11-01T12:00:00",
         "text": "Welcome to the admin panel!",
-        "image": null,
+        "images": null,
         "status": "blocked"
       },
       {
         "id": 3,
         "date": "2024-10-15T09:30:00",
         "text": "System maintenance scheduled for Friday.",
-        "image": "5.png",
+        "images": ["5.png", "7.png"],
         "status": "active"
       }
     ]
@@ -46,14 +46,14 @@
         "id": 2,
         "date": "2024-10-20T10:00:00",
         "text": "Hello, world!",
-        "image": "3.png",
+        "images": ["3.png"],
         "status": "blocked"
       },
       {
         "id": 4,
         "date": "2024-09-10T08:45:00",
         "text": "Starting my journey here.",
-        "image": null,
+        "images": null,
         "status": "active"
       }
     ]
@@ -76,14 +76,14 @@
         "id": 5,
         "date": "2024-10-01T14:15:00",
         "text": "Good afternoon!",
-        "image": null,
+        "images": null,
         "status": "active"
       },
       {
         "id": 6,
         "date": "2024-09-12T07:30:00",
         "text": "Just a relaxing weekend ahead.",
-        "image": "4.png",
+        "images": ["4.png"],
         "status": "blocked"
       }
     ]
@@ -106,14 +106,14 @@
         "id": 7,
         "date": "2024-08-15T16:00:00",
         "text": "Exploring new opportunities!",
-        "image": "2.png",
+        "images": ["2.png"],
         "status": "active"
       },
       {
         "id": 8,
         "date": "2024-07-25T19:45:00",
         "text": "Happy to be part of this community.",
-        "image": null,
+        "images": null,
         "status": "active"
       }
     ]
@@ -135,14 +135,14 @@
         "id": 9,
         "date": "2024-10-08T11:15:00",
         "text": "Trying out this new platform.",
-        "image": "7.png",
+        "images": ["7.png"],
         "status": "active"
       },
       {
         "id": 10,
         "date": "2024-09-02T09:00:00",
         "text": "Any tips for newcomers?",
-        "image": null,
+        "images": null,
         "status": "active"
       }
     ]
@@ -164,14 +164,14 @@
         "id": 11,
         "date": "2024-11-01T09:00:00",
         "text": "Happy to support the community.",
-        "image": null,
+        "images": null,
         "status": "active"
       },
       {
         "id": 12,
         "date": "2024-10-20T13:15:00",
         "text": "If you need help, feel free to reach out!",
-        "image": "10.png",
+        "images": ["10.png", "9.png"],
         "status": "active"
       }
     ]
