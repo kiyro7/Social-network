@@ -11,7 +11,7 @@ block content
             each user in users
                 .card
                     .card-header
-                        a(href=`/user/${user.id}`, class="button-to-go-to-other-page") #{user.username}
+                        a(href=`/user/${user.id}`, class=user.status !== "blocked" ? `button-to-go-to-other-page`: `button-blocked-to-go-to-other-page`) #{user.username}
                     .user-info
                         img(src=`/images/${user.avatar}`, alt=user.username, class=`avatar`)
                     .card-body

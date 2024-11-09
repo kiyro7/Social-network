@@ -11,7 +11,7 @@ block content
                     .card
                         img(src=`/images/${friend.avatar}`, alt=`${friend.username}'s Avatar`, class='avatar')
                         h2
-                            a(href=`/user/${friend.id}`, class="button-to-go-to-other-page") #{friend.username}
+                            a(href=`/user/${friend.id}`, class=friend.status !== "blocked" ? `button-to-go-to-other-page`: `button-blocked-to-go-to-other-page`) #{friend.username}
                         p Email: #{friend.email}
             else
                 p No friends found.

@@ -28,7 +28,8 @@ function getPosts() {
         ...post,
         userId: user.id,
         username: user.username,
-        avatar: user.avatar
+        avatar: user.avatar,
+        userStatus: user.status
     })));
 }
 

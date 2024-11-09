@@ -11,9 +11,9 @@ block content
             .card(class=post.status === "active" ? `user-post`: `user-blocked-post`)
                 img(src=`/images/${post.avatar}`, alt=`${post.username}'s avatar`, class=`avatar`)
                 h2
-                    a(href=`/user/${post.userId}`, class="button-to-go-to-other-page") #{post.username}
-                    |  - 
-                    a(href=`/user/${post.userId}#post_${post.id}`, class="button-to-go-to-other-page") #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
+                    a(href=`/user/${post.userId}`, class=post.userStatus !== "blocked" ? `button-to-go-to-other-page`: `button-blocked-to-go-to-other-page`) #{post.username}
+                    |  -
+                    a(href=`/user/${post.userId}#post_${post.id}`, class="button-to-go-to-other-page")  #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
                 p #{post.text}
                 if post.images
                     each image in post.images

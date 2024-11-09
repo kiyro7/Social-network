@@ -11,7 +11,7 @@ block content
                     if post.status === "active"
                         .card
                             .card-header
-                                a(href=`/user/${friend.id}`, class="button-to-go-to-other-page") #{friend.username}
+                                a(href=`/user/${friend.id}`, class=friend.status !== "blocked" ? `button-to-go-to-other-page`: `button-blocked-to-go-to-other-page`) #{friend.username}
                                 |  -
                                 a(href=`/user/${friend.id}#post_${post.id}`, class="button-to-go-to-other-page")  #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
                             .card-body

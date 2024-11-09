@@ -12,7 +12,7 @@ block content
         ul
             each friend in friends
                 li
-                    a(href=`/user/${friend.id}`, class=`button-to-go-to-other-page`) #{friend.username}
+                    a(href=`/user/${friend.id}`, class=friend.status !== "blocked" ? `button-to-go-to-other-page`: `button-blocked-to-go-to-other-page`) #{friend.username}
         h2
             a(href=`/user/${user.id}/news`, class=`button-to-go-to-other-page`) Friends' posts
         h2 Posts

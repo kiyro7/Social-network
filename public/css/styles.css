@@ -182,8 +182,24 @@ img {
   background-color: #333;
 }
 
+.button-to-go-to-other-page, .button-blocked-to-go-to-other-page {
+  color: #08ff00;
+  text-decoration: none;
+}
+
+.button-to-go-to-other-page:hover, .button-blocked-to-go-to-other-page:hover {
+  text-decoration: underline;
+}
+
 .user-blocked-post {
   background-color: #ff0000;
+}
+.user-blocked-post .button-blocked-to-go-to-other-page {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.button-blocked-to-go-to-other-page {
+  color: #ff0000;
 }
 
 .go-to-other-page {
@@ -196,15 +212,6 @@ img {
 
 .go-to-other-page2 {
   margin-left: 200px;
-}
-
-.button-to-go-to-other-page {
-  color: #08ff00;
-  text-decoration: none;
-}
-
-.button-to-go-to-other-page:hover {
-  text-decoration: underline;
 }
 
 .page-title-color-only {
@@ -229,10 +236,4 @@ img {
   right: 10px;
   font-size: 16px;
   text-decoration: none;
-}
-
-.error-message-user-info {
-  color: red;
-  font-weight: bold;
-  font-size: 1em;
 }
