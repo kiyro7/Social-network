@@ -144,14 +144,14 @@ img {
     height: 300px;
   }
 }
-.user-post {
+.user-post, .user-blocked-post {
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 10px;
   background-color: #FFFFFF;
   position: relative;
 }
-.user-post .status-update {
+.user-post .status-update, .user-blocked-post .status-update {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -161,15 +161,15 @@ img {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.user-post .status-update form {
+.user-post .status-update form, .user-blocked-post .status-update form {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-.user-post .status-update label, .user-post .status-update select, .user-post .status-update button {
+.user-post .status-update label, .user-post .status-update select, .user-post .status-update button, .user-blocked-post .status-update label, .user-blocked-post .status-update select, .user-blocked-post .status-update button {
   font-size: 12px;
 }
-.user-post .status-update button {
+.user-post .status-update button, .user-blocked-post .status-update button {
   background-color: #4a4a4a;
   color: white;
   border: none;
@@ -178,8 +178,12 @@ img {
   cursor: pointer;
   width: 100%;
 }
-.user-post .status-update button:hover {
+.user-post .status-update button:hover, .user-blocked-post .status-update button:hover {
   background-color: #333;
+}
+
+.user-blocked-post {
+  background-color: #ff0000;
 }
 
 .go-to-other-page {

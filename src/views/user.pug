@@ -21,12 +21,11 @@ html
             h2 Posts
             ul
                 each post in user.posts
-                    if post.status === "active"
-                        li(class=`user-post`)
-                            p Published on #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
-                            p #{post.text}
-                            if post.images
-                                each image in post.images
-                                    img(src=`/images/${image}`, alt="post image", class=`post-photo`)
+                    li(class=post.status === "active" ? `user-post`: `user-blocked-post`)
+                        p Published on #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
+                        p #{post.text}
+                        if post.images
+                            each image in post.images
+                                img(src=`/images/${image}`, alt="post image", class=`post-photo`)
         else
             p User not found.

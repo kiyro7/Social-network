@@ -8,9 +8,11 @@ block content
                 a(href="/admin/users", class=`button-to-go-to-other-page`) Go to users
     if posts && posts.length
         each post in posts
-            .card(class=`user-post`)
+            .card(class=post.status === "active" ? `user-post`: `user-blocked-post`)
                 img(src=`/images/${post.avatar}`, alt=`${post.username}'s avatar`, class=`avatar`)
-                h2 #{post.username} - #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
+                h2
+                    a(href=`/user/${post.userId}`, class="button-to-go-to-other-page") #{post.username}
+                    |  - #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
                 p #{post.text}
                 if post.images
                     each image in post.images

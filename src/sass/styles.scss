@@ -170,7 +170,7 @@ img {
   }
 }
 
-.user-post {
+.user-post, .user-blocked-post {
   padding: $padding;
   border-radius: $border-radius;
   margin-bottom: $margin-bottom;
@@ -211,6 +211,10 @@ img {
       }
     }
   }
+}
+
+.user-blocked-post {
+  background-color: #ff0000;
 }
 
 .go-to-other-page {

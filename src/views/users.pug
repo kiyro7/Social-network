@@ -10,7 +10,8 @@ block content
         if users
             each user in users
                 .card
-                    .card-header #{user.username} - #{user.role}
+                    .card-header
+                        a(href=`/user/${user.id}`, class="button-to-go-to-other-page") #{user.username}
                     .user-info
                         img(src=`/images/${user.avatar}`, alt=user.username, class=`avatar`)
                     .card-body
