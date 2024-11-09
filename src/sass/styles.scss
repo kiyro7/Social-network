@@ -218,7 +218,6 @@ img {
   top: 40px;
   left: 10px;
   font-size: 16px;
-  color: #007bff;
   text-decoration: none;
 }
 
@@ -226,19 +225,23 @@ img {
   margin-left: 200px;
 }
 
-.go-to-other-page a, .go-to-other-page2 a {
-  color: #007bff;
+.button-to-go-to-other-page {
+  color: #08ff00;
   text-decoration: none;
 }
 
-.go-to-other-page a:hover, .go-to-other-page2 a:hover {
+.button-to-go-to-other-page:hover {
   text-decoration: underline;
+}
+
+.page-title-color-only {
+  color: #007bff;
 }
 
 .page-title {
   position: absolute;
-  color: #007bff;
   left: 10px;
+  color: #007bff;
 }
 
 .header-row {
