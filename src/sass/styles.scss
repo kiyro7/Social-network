@@ -219,7 +219,7 @@ img {
 
 .go-to-other-page {
   position: absolute;
-  top: 40px;
+  top: 50px;
   left: 10px;
   font-size: 16px;
   text-decoration: none;
@@ -252,4 +252,18 @@ img {
   display: flex;
   align-items: center; /* Vertically align the items */
   justify-content: flex-start; /* Align items to the left */
+}
+
+.admin-panel-top-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.error-message-user-info {
+  color: red;
+  font-weight: bold;
+  font-size: 1em;
 }

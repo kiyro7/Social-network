@@ -42,6 +42,11 @@ app.get('/', (req, res) => {
     res.redirect("/admin/users")
 });
 
+// Главная страница
+app.get('/admin', (req, res) => {
+    res.render('admin');
+});
+
 // Страница профиля пользователя
 app.get('/user/:id', (req, res) => {
     const users = loadUsers();
@@ -94,6 +99,14 @@ app.get('/user/:id/news', (req, res) => {
 app.post('/admin/users/:id/update', (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const { username, email, birthDate, status, role } = req.body;
+
+    const newDateObj = new Date(birthDate);
+    const now = new Date();
+
+    // Проверка, что дата возврата больше текущей
+    if (newDateObj >= now) {
+        return res.redirect('/admin/users');
+    }
 
     // Load users data
     const usersData = loadUsers();

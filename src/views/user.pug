@@ -1,31 +1,28 @@
-doctype html
-html
-    head
-        title User Profile
-        link(rel="stylesheet", href="/css/styles.css")
-    body
-        if user
-            h1(class=`page-title-color-only`) #{user.username}
-            img(src=`/images/${user.avatar}`, alt=user.username, class=`avatar`)
-            p Email: #{user.email}
-            p Status: #{user.status}
-            p Role: #{user.role}
-            h2
-                a(href=`/user/${user.id}/friends`, class=`button-to-go-to-other-page`) Friends
-            ul
-                each friend in friends
-                    li
-                        a(href=`/user/${friend.id}`, class=`button-to-go-to-other-page`) #{friend.username}
-            h2
-                a(href=`/user/${user.id}/news`, class=`button-to-go-to-other-page`) Friends' posts
-            h2 Posts
-            ul
-                each post in user.posts
-                    li(class=post.status === "active" ? `user-post`: `user-blocked-post`, id=`post_${post.id}`)
-                        p Published on #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
-                        p #{post.text}
-                        if post.images
-                            each image in post.images
-                                img(src=`/images/${image}`, alt="post image", class=`post-photo`)
-        else
-            p User not found.
+extends layout
+
+block content
+    if user
+        h1(class=`page-title-color-only`) #{user.username}
+        img(src=`/images/${user.avatar}`, alt=user.username, class=`avatar`)
+        p Email: #{user.email}
+        p Status: #{user.status}
+        p Role: #{user.role}
+        h2
+            a(href=`/user/${user.id}/friends`, class=`button-to-go-to-other-page`) Friends
+        ul
+            each friend in friends
+                li
+                    a(href=`/user/${friend.id}`, class=`button-to-go-to-other-page`) #{friend.username}
+        h2
+            a(href=`/user/${user.id}/news`, class=`button-to-go-to-other-page`) Friends' posts
+        h2 Posts
+        ul
+            each post in user.posts
+                li(class=post.status === "active" ? `user-post`: `user-blocked-post`, id=`post_${post.id}`)
+                    p Published on #{new Date(post.date).toLocaleDateString()} at #{new Date(post.date).toLocaleTimeString()}
+                    p #{post.text}
+                    if post.images
+                        each image in post.images
+                            img(src=`/images/${image}`, alt="post image", class=`post-photo`)
+    else
+        p User not found.

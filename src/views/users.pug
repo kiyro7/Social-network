@@ -18,11 +18,11 @@ block content
                         form(action=`/admin/users/${user.id}/update`, method="post")
                             div.user-update-info-element-form
                                 label(for="username") Username:
-                                input(type="text", name="username", value=user.username)
+                                input(type="text", name="username", maxlength="40", value=user.username)
 
                             div.user-update-info-element-form
                                 label(for="email") Email:
-                                input(type="email", name="email", value=user.email)
+                                input(type="email", name="email", maxlength="40", value=user.email)
 
                             div.user-update-info-element-form
                                 label(for="birthDate") Birth Date:

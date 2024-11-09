@@ -3,19 +3,30 @@
     "id": 1,
     "username": "admin",
     "avatar": "1.png",
-    "birthDate": "1985-05-20",
-    "email": "admin@example.com",
-    "status": "active",
+    "birthDate": "2022-02-23",
+    "email": "admeraewrewr@e.com",
+    "status": "unverified",
     "role": "admin",
     "friends": [
-      2
+      2,
+      3
     ],
     "posts": [
       {
         "id": 1,
         "date": "2024-11-01T12:00:00",
         "text": "Welcome to the admin panel!",
-        "image": null,
+        "images": null,
+        "status": "active"
+      },
+      {
+        "id": 3,
+        "date": "2024-10-15T09:30:00",
+        "text": "System maintenance scheduled for Friday.",
+        "images": [
+          "5.png",
+          "7.png"
+        ],
         "status": "active"
       }
     ]
@@ -29,14 +40,152 @@
     "status": "active",
     "role": "user",
     "friends": [
-      1
+      1,
+      3,
+      4
     ],
     "posts": [
       {
         "id": 2,
         "date": "2024-10-20T10:00:00",
         "text": "Hello, world!",
-        "image": "3.png",
+        "images": [
+          "3.png"
+        ],
+        "status": "blocked"
+      },
+      {
+        "id": 4,
+        "date": "2024-09-10T08:45:00",
+        "text": "Starting my journey here.",
+        "images": null,
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "username": "user2",
+    "avatar": "3.png",
+    "birthDate": "1988-02-22",
+    "email": "user2@example.com",
+    "status": "blocked",
+    "role": "user",
+    "friends": [
+      1,
+      2,
+      4
+    ],
+    "posts": [
+      {
+        "id": 5,
+        "date": "2024-10-01T14:15:00",
+        "text": "Good afternoon!",
+        "images": null,
+        "status": "active"
+      },
+      {
+        "id": 6,
+        "date": "2024-09-12T07:30:00",
+        "text": "Just a relaxing weekend ahead.",
+        "images": [
+          "4.png"
+        ],
+        "status": "blocked"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "username": "user3",
+    "avatar": "4.png",
+    "birthDate": "1995-12-05",
+    "email": "user3@example.com",
+    "status": "active",
+    "role": "user",
+    "friends": [
+      2,
+      3,
+      5
+    ],
+    "posts": [
+      {
+        "id": 7,
+        "date": "2024-08-15T16:00:00",
+        "text": "Exploring new opportunities!",
+        "images": [
+          "2.png"
+        ],
+        "status": "active"
+      },
+      {
+        "id": 8,
+        "date": "2024-07-25T19:45:00",
+        "text": "Happy to be part of this community.",
+        "images": null,
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "username": "user4",
+    "avatar": "5.png",
+    "birthDate": "1992-03-18",
+    "email": "user4@example.com",
+    "status": "unverified",
+    "role": "user",
+    "friends": [
+      3,
+      4
+    ],
+    "posts": [
+      {
+        "id": 9,
+        "date": "2024-10-08T11:15:00",
+        "text": "Trying out this new platform.",
+        "images": [
+          "7.png"
+        ],
+        "status": "active"
+      },
+      {
+        "id": 10,
+        "date": "2024-09-02T09:00:00",
+        "text": "Any tips for newcomers?",
+        "images": null,
+        "status": "active"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "username": "user5",
+    "avatar": "6.png",
+    "birthDate": "1987-11-30",
+    "email": "user5@example.com",
+    "status": "active",
+    "role": "admin",
+    "friends": [
+      1,
+      3
+    ],
+    "posts": [
+      {
+        "id": 11,
+        "date": "2024-11-01T09:00:00",
+        "text": "Happy to support the community.",
+        "images": null,
+        "status": "active"
+      },
+      {
+        "id": 12,
+        "date": "2024-10-20T13:15:00",
+        "text": "If you need help, feel free to reach out!",
+        "images": [
+          "10.png",
+          "9.png"
+        ],
         "status": "active"
       }
     ]
