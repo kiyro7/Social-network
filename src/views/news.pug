@@ -20,7 +20,7 @@ block content
                         img(src=`/images/${image}`, alt="post image", class=`post-photo`)
                 .status-update
                     form(action=`/admin/news/${post.userId}/post/${post.id}/update-status`, method="post")
-                        label(for="status") Status:
+                        label(for="status") Post status:
                         select(name="status")
                             option(value="active" selected=post.status === "active") Active
                             option(value="blocked" selected=post.status === "blocked") Blocked
